@@ -1,6 +1,7 @@
 import express from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
+import path from 'path';
 
 // creo una instancia de express
 const app = express();
@@ -14,11 +15,12 @@ app.listen(app.get('port'), ()=>{
 // middlewares o configuraciones extras
 app.use(morgan('dev')); // da información extra a la terminal
 app.use(cors()); // se encarga de recibir peticiones externas
-
-
 // permite recibir objetos en formato JSON
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
+
+// mostrar una pagina por defecto
+app.use(express.static(path.join(__dirname, '../public')));
 
 // agregar rutas
 app.get('/', (req, res)=>{
