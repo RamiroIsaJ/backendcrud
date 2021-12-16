@@ -3,6 +3,7 @@ import morgan from 'morgan';
 import cors from 'cors';
 import path from 'path';
 import router from './routes/producto.routes';
+import './database';
 
 // creo una instancia de express
 const app = express();
@@ -25,6 +26,8 @@ app.use(express.static(path.join(__dirname, '../public')));
 
 // agregar rutas
 app.use('/apicrud', router);
+
+
 /*
 app.get('/', (req, res)=>{
   res.send('hola desde el servidor');
