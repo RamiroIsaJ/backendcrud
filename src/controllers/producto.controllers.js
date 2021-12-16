@@ -74,4 +74,19 @@ productoctrl.borrarProducto = async (res, req) =>{
 
   }
 
+productoctrl.editarProducto = async (res, req) =>{
+    try{
+      // buscar producto y borrarlo
+      await Producto.findByIdAndUpdate(req.params.id, req.body);
+      res.status(200).json({
+        message: "Se borró correctamente"
+      });
+    }catch(error){
+      console.log(error);
+      res.status(404).json({
+        message: "Error al acceder a al producto"
+      });
+    }
+
+  }
   export default productoctrl;
