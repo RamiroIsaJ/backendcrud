@@ -20,8 +20,4 @@ const productoSchema = new Schema({
 
 const Producto = mongoose.model('producto', productoSchema);
 
-<<<<<<< HEAD
 export default Producto;
-=======
-export default Producto;
->>>>>>> listarProductos
