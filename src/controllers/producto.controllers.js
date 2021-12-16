@@ -74,6 +74,7 @@ productoctrl.borrarProducto = async (res, req) =>{
 
   }
 
+<<<<<<< HEAD
 
 productoctrl.editarProducto = async (res, req) =>{
   try{
@@ -91,4 +92,6 @@ productoctrl.editarProducto = async (res, req) =>{
   }
 }
 
+=======
+>>>>>>> listarProductos
   export default productoctrl;

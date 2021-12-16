@@ -11,7 +11,6 @@ router.route('/')
 
 router.route('/:id')
 .get(productoctrl.obtenerProducto)
-.delete(productoctrl.borrarProducto)
-.put(productoctrl.editarProducto);
+.delete(productoctrl.borrarProducto);
 
 export default router;
