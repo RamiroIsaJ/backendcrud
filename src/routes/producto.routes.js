@@ -9,4 +9,8 @@ router.route('/')
 .post(productoctrl.crearProducto)
 .get(productoctrl.listarProducto);
 
+router.route('/:id')
+.get(productoctrl.obtenerProducto)
+.delete(productoctrl.borrarProducto);
+
 export default router;

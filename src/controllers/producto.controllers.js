@@ -11,16 +11,12 @@ productoctrl.listarProducto = async (req, res)=>{
 
     }catch(error){
       res.status(404).json({
-          message: "Error al acceder a los recursos"
-      })
+          message: "Error al acceder a los productos"
+      });
     }
   };
 
-productoctrl.borrarProducto = (req, res)=>{
-    res.send('borrar productos');
-  };
-
-  productoctrl.crearProducto = async (req, res)=>{
+productoctrl.crearProducto = async (req, res)=>{
     // res.send('crear productos');
     console.log(req.body);
     try{
@@ -38,12 +34,44 @@ productoctrl.borrarProducto = (req, res)=>{
           message: 'Producto guardado correctamente'
       });
 
-
     }catch(error){
       console.log(error);
       res.status(400).json({
         message: 'Error al agregar un producto'
       });
     }
-  };
+  }
+
+productoctrl.obtenerProducto = async (res, req) =>{
+    try{
+      //obtener parametro de la ruta
+      console.log(req.params.id)
+      // crear objeto y lo busco en DB
+      // const productoBuscado = await Producto.findById(req.params.id);
+      // res.status(200).json(productoBuscado);
+
+    }catch(error){
+      console.log(error);
+      res.status(404).json({
+        message: "Error al acceder a al producto"
+      });
+    }
+  }
+
+productoctrl.borrarProducto = async (res, req) =>{
+    try{
+      // buscar producto y borrarlo
+      await Producto.findByIdAndDelete(req.params.id);
+      res.status(200).json({
+        message: "Se borró correctamente"
+      });
+    }catch(error){
+      console.log(error);
+      res.status(404).json({
+        message: "Error al acceder a al producto"
+      });
+    }
+
+  }
+
   export default productoctrl;
